@@ -289,5 +289,47 @@
           <script src="//www.craigslist.org/js/leaflet-concat.min.js?v=b4f9b48fd7339d4a19e71c500faae0cb" type="text/javascript" ></script>
 
       <script src="//www.craigslist.org/js/postings-concat.min.js?v=33044b660200679fcccbf86838189c88" type="text/javascript" ></script>
+
+
+      <p id="message"></p>
+
+    <form id="sign_up" class="border">
+      <fieldset>
+        <legend></legend>
+        <input type="text" name="credentials[email]" placeholder="Email" id='email'>
+        <input type="password" name="credentials[password]" placeholder="Password" id='password'>
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" id='password2'>
+        <input type="submit" value="Sign up!">
+
+      </fieldset>
+    </form>
+
+    <form id="sign_in" class="border">
+      <fieldset>
+        <legend></legend>
+        <input type="text" name="credentials[email]" placeholder="Email">
+        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="submit" value="Sign In!">
+
+      </fieldset>
+    </form>
+
+    <form id="sign_out" class='border d-none'>
+      <fieldset>
+        <legend></legend>
+        <input type="submit" value="Sign Out!">
+
+      </fieldset>
+    </form>
+
+    <form id="change_password" class='border d-none'>
+      <fieldset>
+        <legend></legend>
+        <input type="password" name="passwords[old]" placeholder="Old Password" id='oldPassword'>
+        <input type="password" name="passwords[new]" placeholder="New Password" id=newPassword>
+        <input type="submit" value="Change Password!">
+      </fieldset>
+    </form>
+
     </body>
 </html>
