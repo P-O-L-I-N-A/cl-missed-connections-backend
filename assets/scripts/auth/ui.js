@@ -31,6 +31,8 @@ const signInSuccess = data => {
   $('#sign_in').hide()
   $('#sign_out').removeClass('d-none')
   $('#change_password').removeClass('d-none')
+  $('#missed_connection').removeClass('d-none')
+  $('#missed_connection_me').removeClass('d-none')
 }
 
 const signInFailure = error => {
