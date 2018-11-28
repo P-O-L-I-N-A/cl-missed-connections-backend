@@ -37,9 +37,22 @@ const onSignOut = event => {
     .catch(ui.signOutFailure)
 }
 
+const onMissedConnection = event => {
+  event.preventDefault()
+  console.log('SUBMIT MISSED CONNECTION')
+//   api.something
+}
+
+const onMissedConnectionMe = event => {
+  event.preventDefault()
+  console.log('SUBMIT MY ATTRIBUTES')
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
-  onSignOut
+  onSignOut,
+  onMissedConnection,
+  onMissedConnectionMe
 }

@@ -13,3 +13,11 @@ $(() => {
   $('#change_password').on('submit', authEvents.onChangePassword)
   $('#sign_out').on('submit', authEvents.onSignOut)
 })
+
+$(() => {
+  const missedConnection = $('#missed_connection')
+  missedConnection.on('click', authEvents.onMissedConnection)
+
+  const missedConnectionMe = $('#missed_connection_me')
+  missedConnectionMe.on('click', authEvents.onMissedConnectionMe)
+})

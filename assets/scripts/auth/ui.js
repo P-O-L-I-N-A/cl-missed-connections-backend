@@ -12,11 +12,11 @@ const signUpSuccess = data => {
   // console.log('signUpSuccess ran. Data is :', data)
 }
 
-const signUpFailure = error => {
+const signUpFailure = () => {
   $('#message').text('Error on sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('signUpFailure ran. Error is :', error)
+  // console.error('signUpFailure ran. Error is :', error)
 }
 
 const signInSuccess = data => {
@@ -35,11 +35,11 @@ const signInSuccess = data => {
   $('#missed_connection_me').removeClass('d-none')
 }
 
-const signInFailure = error => {
+const signInFailure = () => {
   $('#message').text('Error on sign in')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('signInFailure ran. Error is :', error)
+  // console.error('signInFailure ran. Error is :', error)
 }
 
 const changePasswordSuccess = data => {
@@ -51,11 +51,11 @@ const changePasswordSuccess = data => {
   console.log('changePasswordSuccess ran. Data is :', data)
 }
 
-const changePasswordFailure = error => {
+const changePasswordFailure = () => {
   $('#message').text('Error on password change')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('changePasswordFailure ran. Error is :', error)
+// console.error('changePasswordFailure ran. Error is :', error)
 }
 
 const signOutSuccess = data => {
@@ -66,11 +66,11 @@ const signOutSuccess = data => {
   console.log('signOutSuccess ran. Data is :', data)
 }
 
-const signOutFailure = error => {
+const signOutFailure = () => {
   $('#message').text('Error on sign out')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  console.error('signOutFailure ran. Error is :', error)
+// console.error('signOutFailure ran. Error is :', error)
 }
 
 module.exports = {
