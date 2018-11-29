@@ -39,8 +39,10 @@ const onSignOut = event => {
 
 const onMissedConnection = event => {
   event.preventDefault()
-  console.log('SUBMIT MISSED CONNECTION')
-//   api.something
+  // console.log('SUBMIT MISSED CONNECTION')
+  // .then(ui.missedConnectionSuccess)
+  // .catch(ui.missedConnectionFailure)
+  $('#missed_connections_submit').removeClass('d-none')
 }
 
 const onMissedConnectionMe = event => {

@@ -73,6 +73,14 @@ const signOutFailure = () => {
 // console.error('signOutFailure ran. Error is :', error)
 }
 
+// const missedConnectionSuccess = () => {
+//   $('#missed_connections_submit').removeClass('d-none')
+// }
+//
+// const missedConnectionFailure = () => {
+//   console.log('MissedConnectionFailure')
+// }
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -82,4 +90,6 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure
+  // missedConnectionSuccess,
+  // missedConnectionFailure
 }
