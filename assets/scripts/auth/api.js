@@ -40,9 +40,42 @@ const signOut = () => {
   })
 }
 
+const missedConnectionApi = () =>
+  $.ajax({
+    url: config.apiUrl + '/connections',
+    method: 'GET'
+  })
+
+const missedConnectionSubmit = (data1) =>
+  $.ajax({
+    url: config.apiUrl + '/connections',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'connection': data1
+    }
+  })
+
+const missedConnectionMe = (data2) =>
+  $.ajax({
+    url: config.apiUrl + '/my_attrs',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'connection': data2
+    }
+  })
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  missedConnectionApi,
+  missedConnectionSubmit,
+  missedConnectionMe
 }

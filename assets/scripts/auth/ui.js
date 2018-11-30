@@ -33,6 +33,8 @@ const signInSuccess = data => {
   $('#change_password').removeClass('d-none')
   $('#missed_connection').removeClass('d-none')
   $('#missed_connection_me').removeClass('d-none')
+  $('#lonely_ppl').removeClass('d-none')
+  $('#missed_connection_missed').removeClass('d-none')
 }
 
 const signInFailure = () => {
@@ -73,13 +75,52 @@ const signOutFailure = () => {
 // console.error('signOutFailure ran. Error is :', error)
 }
 
-// const missedConnectionSuccess = () => {
-//   $('#missed_connections_submit').removeClass('d-none')
-// }
-//
-// const missedConnectionFailure = () => {
-//   console.log('MissedConnectionFailure')
-// }
+const missedConnectionApiSuccess = data => {
+  console.log('MissedConnectionSuccess')
+  console.log(data)
+  $('#content').html('')
+  data.connections.forEach(connection => {
+    const connectionHTML = (`
+      <h4>ID: ${connection.id}</h4>
+      <p>LOCATION: ${connection.location}</p>
+      <p>GENDER: ${connection.gender}</p>
+      <p>HAIR: ${connection.hair}</p>
+      <p>CLOTHES: ${connection.clothes}</p>
+      <p>CAR: ${connection.car}</p>
+      <p>TEXT: ${connection.text}</p>
+      <br>
+    `)
+    $('#content').append(connectionHTML)
+  })
+}
+
+const missedConnectionApiFailure = () => {
+  console.log('MissedConnectionFailure')
+}
+
+const missedConnectionSubmitSuccess = data => {
+  console.log('MC SUBMIT SUCCESS')
+  $('#location').val('')
+  $('#gender').val('')
+  $('#hair').val('')
+  $('#clothes').val('')
+  $('#car').val('')
+  $('#text').val('')
+  console.log(data)
+}
+
+const missedConnectionSubmitFailure = data => {
+  console.log('MC SUBMIT FAILURE')
+}
+
+const missedConnectionMeSuccess = data => {
+  console.log('MC ME SUCCESS')
+  console.log(data)
+}
+
+const missedConnectionMeFailure = data => {
+  console.log('MC ME FAILURE')
+}
 
 module.exports = {
   signUpSuccess,
@@ -89,7 +130,11 @@ module.exports = {
   changePasswordSuccess,
   changePasswordFailure,
   signOutSuccess,
-  signOutFailure
-  // missedConnectionSuccess,
-  // missedConnectionFailure
+  signOutFailure,
+  missedConnectionApiSuccess,
+  missedConnectionApiFailure,
+  missedConnectionSubmitSuccess,
+  missedConnectionSubmitFailure,
+  missedConnectionMeSuccess,
+  missedConnectionMeFailure
 }

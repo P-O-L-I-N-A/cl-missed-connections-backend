@@ -39,15 +39,41 @@ const onSignOut = event => {
 
 const onMissedConnection = event => {
   event.preventDefault()
-  // console.log('SUBMIT MISSED CONNECTION')
-  // .then(ui.missedConnectionSuccess)
-  // .catch(ui.missedConnectionFailure)
   $('#missed_connections_submit').removeClass('d-none')
 }
 
-const onMissedConnectionMe = event => {
+const onMissedConnectionApi = event => {
   event.preventDefault()
-  console.log('SUBMIT MY ATTRIBUTES')
+  api.missedConnectionApi()
+    .then(ui.missedConnectionApiSuccess)
+    .catch(ui.missedConnectionApiFailure)
+  $('#missed_connection_meme').addClass('d-none')
+}
+
+const onMissedConnectionSubmit = event => {
+  event.preventDefault()
+  console.log('what1')
+  // const currUser = store.user.id
+  const data = getFormFields(event.target)
+  console.log(data)
+  api.missedConnectionSubmit(data)
+    .then(ui.missedConnectionSubmitSuccess)
+    .catch(ui.missedConnectionSubmitFailure)
+}
+
+const onMissedConnectionMe = event => {
+  console.log('what')
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
+  api.missedConnectionMe(data)
+    .then(ui.missedConnectionMeSuccess)
+    .catch(ui.missedConnectionMeFailure)
+}
+
+const onMissedConnectionMissed = event => {
+  event.preventDefault()
+  $('#missed_connections_meme').removeClass('d-none')
 }
 
 module.exports = {
@@ -56,5 +82,8 @@ module.exports = {
   onChangePassword,
   onSignOut,
   onMissedConnection,
-  onMissedConnectionMe
+  onMissedConnectionApi,
+  onMissedConnectionSubmit,
+  onMissedConnectionMe,
+  onMissedConnectionMissed
 }

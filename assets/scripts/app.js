@@ -12,12 +12,9 @@ $(() => {
   $('#sign_in').on('submit', authEvents.onSignIn)
   $('#change_password').on('submit', authEvents.onChangePassword)
   $('#sign_out').on('submit', authEvents.onSignOut)
-})
-
-$(() => {
-  const missedConnection = $('#missed_connection')
-  missedConnection.on('click', authEvents.onMissedConnection)
-
-  const missedConnectionMe = $('#missed_connection_me')
-  missedConnectionMe.on('click', authEvents.onMissedConnectionMe)
+  $('#missed_connection').on('click', authEvents.onMissedConnection)
+  $('#missed_connection_meme').on('click', authEvents.onMissedConnectionMe)
+  $('#missed_connections_submit').on('submit', authEvents.onMissedConnectionSubmit)
+  $('#lonely_ppl').on('click', authEvents.onMissedConnectionApi)
+  $('#missed_connection_missed').on('click', authEvents.onMissedConnectionMissed)
 })
