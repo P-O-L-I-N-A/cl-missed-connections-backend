@@ -39,7 +39,8 @@ const onSignOut = event => {
 
 const onMissedConnection = event => {
   event.preventDefault()
-  $('#missed_connections_submit').removeClass('d-none')
+  //  $('#missed_connections_submit').removeClass('d-none')
+  $('#missed_connections_submit').toggle('#missed_connections_submit')
 }
 
 const onMissedConnectionApi = event => {
@@ -47,7 +48,7 @@ const onMissedConnectionApi = event => {
   api.missedConnectionApi()
     .then(ui.missedConnectionApiSuccess)
     .catch(ui.missedConnectionApiFailure)
-  $('#missed_connection_meme').addClass('d-none')
+  $('.container').toggle('#content')
 }
 
 const onMissedConnectionSubmit = event => {
@@ -73,7 +74,7 @@ const onMissedConnectionMe = event => {
 
 const onMissedConnectionMissed = event => {
   event.preventDefault()
-  $('#missed_connections_meme').removeClass('d-none')
+  $('#missed_connections_meme').toggle('missed_connections_meme')
 }
 
 module.exports = {
