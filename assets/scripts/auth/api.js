@@ -80,6 +80,19 @@ const get1Lonely = id => {
   })
 }
 
+const loveOneLonely = id => {
+  console.log(id.ID)
+  const lonelyId2 = id.ID
+  return $.ajax({
+    url: config.apiUrl + '/connections/' + lonelyId2,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    id
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -88,5 +101,6 @@ module.exports = {
   missedConnectionApi,
   missedConnectionSubmit,
   missedConnectionMe,
-  get1Lonely
+  get1Lonely,
+  loveOneLonely
 }

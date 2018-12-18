@@ -49,6 +49,7 @@ const onMissedConnectionApi = event => {
     .then(ui.missedConnectionApiSuccess)
     .catch(ui.missedConnectionApiFailure)
   $('.container').toggle('#content')
+  $('.container').html('')
 }
 
 const onMissedConnectionSubmit = event => {
@@ -93,6 +94,19 @@ const onGet1Lonely = event => {
   $('#lonely_content').toggle('lonely_content')
 }
 
+const onLoveLonely = event => {
+  event.preventDefault()
+  $('#loveOneLonely').toggle('loveOneLonely')
+}
+
+const onLoveOneLonely = event => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.loveOneLonely(data)
+    .then(ui.loveOneLonelySuccess)
+    .catch(ui.loveOneLonelyFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -104,5 +118,7 @@ module.exports = {
   onMissedConnectionMe,
   onMissedConnectionMissed,
   onGetOneLonely,
-  onGet1Lonely
+  onGet1Lonely,
+  onLoveLonely,
+  onLoveOneLonely
 }

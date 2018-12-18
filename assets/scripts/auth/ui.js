@@ -36,6 +36,7 @@ const signInSuccess = data => {
   $('#lonely_ppl').removeClass('d-none')
   $('#missed_connection_missed').removeClass('d-none')
   $('#1lonely_ppl').removeClass('d-none')
+  $('#love_lonely').removeClass('d-none')
 }
 
 const signInFailure = () => {
@@ -145,6 +146,14 @@ const get1LonelyFailure = data => {
   console.log('error')
 }
 
+const loveOneLonelySuccess = data => {
+  console.log(data, 'loved a lonely')
+}
+
+const loveOneLonelyFailure = data => {
+  console.log(data, 'yikes')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -161,5 +170,7 @@ module.exports = {
   missedConnectionMeSuccess,
   missedConnectionMeFailure,
   get1LonelySuccess,
-  get1LonelyFailure
+  get1LonelyFailure,
+  loveOneLonelySuccess,
+  loveOneLonelyFailure
 }
