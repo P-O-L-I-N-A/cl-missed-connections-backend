@@ -40,11 +40,12 @@ const signOut = () => {
   })
 }
 
-const missedConnectionApi = () =>
-  $.ajax({
+const missedConnectionApi = () => {
+  return $.ajax({
     url: config.apiUrl + '/connections',
     method: 'GET'
   })
+}
 
 const missedConnectionSubmit = (data1) =>
   $.ajax({
@@ -70,6 +71,15 @@ const missedConnectionMe = (data2) =>
     }
   })
 
+const get1Lonely = id => {
+  console.log(id.ID)
+  const lonelyId = id.ID
+  return $.ajax({
+    url: config.apiUrl + '/connections/' + lonelyId,
+    method: 'GET'
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -77,5 +87,6 @@ module.exports = {
   signOut,
   missedConnectionApi,
   missedConnectionSubmit,
-  missedConnectionMe
+  missedConnectionMe,
+  get1Lonely
 }

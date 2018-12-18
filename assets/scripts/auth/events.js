@@ -77,6 +77,22 @@ const onMissedConnectionMissed = event => {
   $('#missed_connections_meme').toggle('missed_connections_meme')
 }
 
+const onGetOneLonely = event => {
+  event.preventDefault()
+  console.log('click')
+  $('#GetOneLonely').toggle('Get1Lonely')
+}
+
+const onGet1Lonely = event => {
+  event.preventDefault()
+  const id = getFormFields(event.target)
+  console.log(id)
+  api.get1Lonely(id)
+    .then(ui.get1LonelySuccess)
+    .catch(ui.get1LonelyFailure)
+  $('#lonely_content').toggle('lonely_content')
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
@@ -86,5 +102,7 @@ module.exports = {
   onMissedConnectionApi,
   onMissedConnectionSubmit,
   onMissedConnectionMe,
-  onMissedConnectionMissed
+  onMissedConnectionMissed,
+  onGetOneLonely,
+  onGet1Lonely
 }

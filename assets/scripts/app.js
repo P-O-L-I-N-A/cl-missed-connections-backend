@@ -17,4 +17,6 @@ $(() => {
   $('#missed_connections_submit').on('submit', authEvents.onMissedConnectionSubmit)
   $('#lonely_ppl').on('click', authEvents.onMissedConnectionApi)
   $('#missed_connection_missed').on('click', authEvents.onMissedConnectionMissed)
+  $('#1lonely_ppl').on('click', authEvents.onGetOneLonely)
+  $('#GetOneLonely').on('submit', authEvents.onGet1Lonely)
 })

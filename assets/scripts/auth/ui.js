@@ -35,6 +35,7 @@ const signInSuccess = data => {
   $('#missed_connection_me').removeClass('d-none')
   $('#lonely_ppl').removeClass('d-none')
   $('#missed_connection_missed').removeClass('d-none')
+  $('#1lonely_ppl').removeClass('d-none')
 }
 
 const signInFailure = () => {
@@ -122,6 +123,28 @@ const missedConnectionMeFailure = data => {
   console.log('MC ME FAILURE')
 }
 
+const get1LonelySuccess = data => {
+  console.log(data)
+  $('#lonely_content').html('')
+  const connections = data.connection
+  const oneLonelyHTML = (`
+    <h4>ID: ${connections.id}</h4>
+    <p>LOCATION: ${connections.location}</p>
+    <p>GENDER: ${connections.gender}</p>
+    <p>HAIR: ${connections.hair}</p>
+    <p>CLOTHES: ${connections.clothes}</p>
+    <p>CAR: ${connections.car}</p>
+    <p>TEXT: ${connections.text}</p>
+    <br>
+  `)
+  console.log(oneLonelyHTML)
+  $('#lonely_content').append(oneLonelyHTML)
+}
+
+const get1LonelyFailure = data => {
+  console.log('error')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -136,5 +159,7 @@ module.exports = {
   missedConnectionSubmitSuccess,
   missedConnectionSubmitFailure,
   missedConnectionMeSuccess,
-  missedConnectionMeFailure
+  missedConnectionMeFailure,
+  get1LonelySuccess,
+  get1LonelyFailure
 }

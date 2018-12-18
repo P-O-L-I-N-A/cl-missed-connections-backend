@@ -65,6 +65,10 @@
             LONELIES
     </button>
 
+    <button type='button' class='btn btn-primary d-none' id="1lonely_ppl">
+            GET A LONELY
+    </button>
+
     <form id="missed_connections_submit" class='border' style="display:none;">
       <fieldset>
         <legend></legend>
@@ -90,10 +94,21 @@
       </fieldset>
     </form>
 
+    <form id="GetOneLonely" style="display:none;">
+      <fieldset>
+      <legend></legend>
+      <input type="text" name="ID" placeholder="ID" id="numberlonely">
+      <input type="submit" value="GET 1 LONELY" id="Get1Lonely">
+      </fieldset>
+    </form>
+
+    <div class="container" id='lonely_content' style="display:none;">
+      <div id="one_lonely" style="color:red"></div>
+    </div>
+
     <div class="container" id='content' style="display:none;">
       <div id="lonlies" style="color:red"></div>
     </div>
-
 
     </body>
 </html>
