@@ -17,16 +17,16 @@
 
     <form id="sign_up">
         <legend></legend>
-        <input type="text" name="credentials[email]" placeholder="Email" >
-        <input type="password" name="credentials[password]" placeholder="Password">
-        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+        <input type="text" name="credentials[email]" placeholder="Email" id="email">
+        <input type="password" name="credentials[password]" placeholder="Password" id="password">
+        <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password" id="confirm_password">
         <input type="submit" value="Sign up!">
     </form>
 
     <form id="sign_in">
         <legend></legend>
-        <input type="text" name="credentials[email]" placeholder="Email">
-        <input type="password" name="credentials[password]" placeholder="Password">
+        <input type="text" name="credentials[email]" placeholder="Email" id="email2">
+        <input type="password" name="credentials[password]" placeholder="Password" id="password2">
         <input type="submit" value="Sign In!">
     </form>
 
@@ -37,8 +37,8 @@
 
     <form id="change_password" class="d-none">
         <legend></legend>
-        <input type="password" name="passwords[old]" placeholder="Old Password">
-        <input type="password" name="passwords[new]" placeholder="New Password">
+        <input type="password" name="passwords[old]" placeholder="Old Password" id="old_password">
+        <input type="password" name="passwords[new]" placeholder="New Password" id="new_password">
         <input type="submit" value="Change Password!">
     </form>
 
@@ -48,7 +48,7 @@
             I AM MISSING SOMEONE
     </button>
 
-    <button type='button' class='btn btn-primary d-none' id="missed_connection_missed">
+    <button type='button' class='btn btn-primary d-none' id="am_i_being_missed">
             AM I BEING MISSED?
     </button>
 
@@ -67,25 +67,23 @@
 
     <form id="find_someone" style="display:none;">
         <legend></legend>
-        <input type="text" name="location" placeholder="Location">
-        <input type="text" name="gender" placeholder="Gender">
-        <input type="text" name="hair" placeholder="Hair">
-        <input type="text" name="clothes" placeholder="Clothes">
-        <input type="text" name="car" placeholder="Car">
-        <input type="text" name="text" placeholder="Text">
+        <input type="text" name="location" placeholder="Location" id="location">
+        <input type="text" name="gender" placeholder="Gender" id="gender">
+        <input type="text" name="hair" placeholder="Hair" id="hair">
+        <input type="text" name="clothes" placeholder="Clothes" id="clothes">
+        <input type="text" name="car" placeholder="Car" id="car">
+        <input type="text" name="text" placeholder="Text" id="text">
         <input type="submit" value="FIND SOMEONE">
     </form>
 
-    <form id="missed_connections_meme" class='border' style="display:none;">
-      <fieldset>
+    <form id="am_i_being_missed_form" style="display:none;">
         <legend></legend>
         <input type="text" name="location" placeholder="Location" id='location2'>
         <input type="text" name="gender" placeholder="Gender" id='gender2'>
         <input type="text" name="hair" placeholder="Hair" id='hair2'>
         <input type="text" name="clothes" placeholder="Clothes" id='clothes2'>
         <input type="text" name="car" placeholder="Car" id='car2'>
-        <input type="button" value="AM I BEING MISSED?">
-      </fieldset>
+        <input type="submit" value="AM I BEING MISSED?">
     </form>
 
     <form id="GetOneLonely" style="display:none;">

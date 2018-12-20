@@ -6,9 +6,9 @@ const signUpSuccess = data => {
   $('#message').text('Signed up successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
-  $('#password').val('')
-  $('#password2').val('')
   $('#email').val('')
+  $('#password').val('')
+  $('#confirm_password').val('')
   // console.log('signUpSuccess ran. Data is :', data)
 }
 
@@ -16,27 +16,21 @@ const signUpFailure = () => {
   $('#message').text('Error on sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  // console.error('signUpFailure ran. Error is :', error)
+  $('#email').val('')
+  $('#password').val('')
+  $('#confirm_password').val('')
 }
 
 const signInSuccess = data => {
   store.user = data.user
-  $('#playerName').text(data.user.email)
   $('#message').text('Signed in successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('signInSuccess ran. Data is :', data)
-  $('#main').removeClass('d-none')
   $('#sign_up').hide()
   $('#sign_in').hide()
   $('#sign_out').removeClass('d-none')
   $('#change_password').removeClass('d-none')
-  $('#i_am_missing_someone').removeClass('d-none')
-  $('#missed_connection_me').removeClass('d-none')
-  $('#lonely_ppl').removeClass('d-none')
-  $('#missed_connection_missed').removeClass('d-none')
-  $('#1lonely_ppl').removeClass('d-none')
-  $('#love_lonely').removeClass('d-none')
+  $('.button_container button').removeClass('d-none')
 }
 
 const signInFailure = () => {
@@ -76,19 +70,32 @@ const signOutFailure = () => {
 }
 
 const findSomeoneSuccess = data => {
-  console.log('MC SUBMIT SUCCESS')
+  $('#message').text('YOUR LONELY WILL CONTACT U SOo0on')
   $('#location').val('')
   $('#gender').val('')
   $('#hair').val('')
   $('#clothes').val('')
   $('#car').val('')
   $('#text').val('')
-  console.log(data)
 }
 
 const findSomeoneFailure = data => {
-  console.log('MC SUBMIT FAILURE')
+  $('#message').text('OOo0ops')
+  $('#location').val('')
+  $('#gender').val('')
+  $('#hair').val('')
+  $('#clothes').val('')
+  $('#car').val('')
+  $('#text').val('')
 }
+
+// const amIbeingMissedFormSuccess = data => {
+//   $('#message').text('Coming SooOo0n')
+// }
+//
+// const amIbeingMissedFormFailure = data => {
+//   $('#message').text('Coming SooOo0n')
+// }
 
 const missedConnectionApiSuccess = data => {
   console.log('MissedConnectionSuccess')
@@ -111,15 +118,6 @@ const missedConnectionApiSuccess = data => {
 
 const missedConnectionApiFailure = () => {
   console.log('MissedConnectionFailure')
-}
-
-const missedConnectionMeSuccess = data => {
-  console.log('MC ME SUCCESS')
-  console.log(data)
-}
-
-const missedConnectionMeFailure = data => {
-  console.log('MC ME FAILURE')
 }
 
 const get1LonelySuccess = data => {
@@ -172,10 +170,10 @@ module.exports = {
   signOutFailure,
   findSomeoneSuccess,
   findSomeoneFailure,
+  // amIbeingMissedFormSuccess,
+  // amIbeingMissedFormFailure,
   missedConnectionApiSuccess,
   missedConnectionApiFailure,
-  missedConnectionMeSuccess,
-  missedConnectionMeFailure,
   get1LonelySuccess,
   get1LonelyFailure,
   loveOneLonelySuccess,

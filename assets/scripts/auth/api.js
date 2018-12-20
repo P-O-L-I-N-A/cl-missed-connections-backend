@@ -59,7 +59,7 @@ const missedConnectionApi = () => {
   })
 }
 
-// const missedConnectionMe = (data2) =>
+// const amIbeingMissedForm = data =>
 //   $.ajax({
 //     url: config.apiUrl + '/my_attrs',
 //     method: 'POST',
@@ -67,7 +67,7 @@ const missedConnectionApi = () => {
 //       Authorization: 'Token token=' + store.user.token
 //     },
 //     data: {
-//       'connection': data2
+//       'connection': data
 //     }
 //   })
 

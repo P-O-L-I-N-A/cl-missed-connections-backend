@@ -50,6 +50,26 @@ const onFindSomeone = event => {
     .catch(ui.findSomeoneFailure)
 }
 
+const onAmIbeingMissed = event => {
+  event.preventDefault()
+  $('#am_i_being_missed_form').toggle('')
+}
+
+const onAmIbeingMissedForm = event => {
+  event.preventDefault()
+  $('#message').text('Coming SoO0oon')
+  $('#location2').val('')
+  $('#gender2').val('')
+  $('#hair2').val('')
+  $('#clothes2').val('')
+  $('#car2').val('')
+  $('#text2').val('')
+  // const data = getFormFields(event.target)
+  // api.amIbeingMissedForm(data)
+  //   .then(ui.amIbeingMissedFormSuccess)
+  //   .catch(ui.amIbeingMissedFormFailure)
+}
+
 const onMissedConnectionApi = event => {
   event.preventDefault()
   api.missedConnectionApi()
@@ -57,21 +77,6 @@ const onMissedConnectionApi = event => {
     .catch(ui.missedConnectionApiFailure)
   $('.container').toggle('#content')
   $('.container').html('')
-}
-
-const onMissedConnectionMe = event => {
-  console.log('what')
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  console.log(data)
-  api.missedConnectionMe(data)
-    .then(ui.missedConnectionMeSuccess)
-    .catch(ui.missedConnectionMeFailure)
-}
-
-const onMissedConnectionMissed = event => {
-  event.preventDefault()
-  $('#missed_connections_meme').toggle('missed_connections_meme')
 }
 
 const onGetOneLonely = event => {
@@ -120,9 +125,9 @@ module.exports = {
   onSignOut,
   onIamMissingSomeone,
   onFindSomeone,
+  onAmIbeingMissed,
+  onAmIbeingMissedForm,
   onMissedConnectionApi,
-  onMissedConnectionMe,
-  onMissedConnectionMissed,
   onGetOneLonely,
   onGet1Lonely,
   onLoveLonely,
