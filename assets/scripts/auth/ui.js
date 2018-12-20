@@ -31,7 +31,7 @@ const signInSuccess = data => {
   $('#sign_in').hide()
   $('#sign_out').removeClass('d-none')
   $('#change_password').removeClass('d-none')
-  $('#missed_connection').removeClass('d-none')
+  $('#i_am_missing_someone').removeClass('d-none')
   $('#missed_connection_me').removeClass('d-none')
   $('#lonely_ppl').removeClass('d-none')
   $('#missed_connection_missed').removeClass('d-none')
@@ -59,7 +59,6 @@ const changePasswordFailure = () => {
   $('#message').text('Error on password change')
   $('#message').removeClass()
   $('#message').addClass('failure')
-// console.error('changePasswordFailure ran. Error is :', error)
 }
 
 const signOutSuccess = data => {
@@ -74,7 +73,21 @@ const signOutFailure = () => {
   $('#message').text('Error on sign out')
   $('#message').removeClass()
   $('#message').addClass('failure')
-// console.error('signOutFailure ran. Error is :', error)
+}
+
+const findSomeoneSuccess = data => {
+  console.log('MC SUBMIT SUCCESS')
+  $('#location').val('')
+  $('#gender').val('')
+  $('#hair').val('')
+  $('#clothes').val('')
+  $('#car').val('')
+  $('#text').val('')
+  console.log(data)
+}
+
+const findSomeoneFailure = data => {
+  console.log('MC SUBMIT FAILURE')
 }
 
 const missedConnectionApiSuccess = data => {
@@ -98,21 +111,6 @@ const missedConnectionApiSuccess = data => {
 
 const missedConnectionApiFailure = () => {
   console.log('MissedConnectionFailure')
-}
-
-const missedConnectionSubmitSuccess = data => {
-  console.log('MC SUBMIT SUCCESS')
-  $('#location').val('')
-  $('#gender').val('')
-  $('#hair').val('')
-  $('#clothes').val('')
-  $('#car').val('')
-  $('#text').val('')
-  console.log(data)
-}
-
-const missedConnectionSubmitFailure = data => {
-  console.log('MC SUBMIT FAILURE')
 }
 
 const missedConnectionMeSuccess = data => {
@@ -147,11 +145,20 @@ const get1LonelyFailure = data => {
 }
 
 const loveOneLonelySuccess = data => {
-  console.log(data, 'loved a lonely')
+  $('#message').text('YOU LOVED A LONELY')
 }
 
 const loveOneLonelyFailure = data => {
-  console.log(data, 'yikes')
+  $('#message').text('OOPS')
+}
+
+const updateOneLonelySuccess = data => {
+  console.log('update success')
+  $('#update_content').append(updateOneLonelySuccess)
+}
+
+const updateOneLonelyFailure = data => {
+  console.log('update failed oooooops')
 }
 
 module.exports = {
@@ -163,14 +170,15 @@ module.exports = {
   changePasswordFailure,
   signOutSuccess,
   signOutFailure,
+  findSomeoneSuccess,
+  findSomeoneFailure,
   missedConnectionApiSuccess,
   missedConnectionApiFailure,
-  missedConnectionSubmitSuccess,
-  missedConnectionSubmitFailure,
   missedConnectionMeSuccess,
   missedConnectionMeFailure,
   get1LonelySuccess,
   get1LonelyFailure,
   loveOneLonelySuccess,
-  loveOneLonelyFailure
+  loveOneLonelyFailure,
+  updateOneLonelyFailure
 }

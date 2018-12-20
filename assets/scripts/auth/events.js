@@ -37,10 +37,17 @@ const onSignOut = event => {
     .catch(ui.signOutFailure)
 }
 
-const onMissedConnection = event => {
+const onIamMissingSomeone = event => {
   event.preventDefault()
-  //  $('#missed_connections_submit').removeClass('d-none')
-  $('#missed_connections_submit').toggle('#missed_connections_submit')
+  $('#find_someone').toggle()
+}
+
+const onFindSomeone = event => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.findSomeone(data)
+    .then(ui.findSomeoneSuccess)
+    .catch(ui.findSomeoneFailure)
 }
 
 const onMissedConnectionApi = event => {
@@ -50,17 +57,6 @@ const onMissedConnectionApi = event => {
     .catch(ui.missedConnectionApiFailure)
   $('.container').toggle('#content')
   $('.container').html('')
-}
-
-const onMissedConnectionSubmit = event => {
-  event.preventDefault()
-  console.log('what1')
-  // const currUser = store.user.id
-  const data = getFormFields(event.target)
-  console.log(data)
-  api.missedConnectionSubmit(data)
-    .then(ui.missedConnectionSubmitSuccess)
-    .catch(ui.missedConnectionSubmitFailure)
 }
 
 const onMissedConnectionMe = event => {
@@ -82,6 +78,7 @@ const onGetOneLonely = event => {
   event.preventDefault()
   console.log('click')
   $('#GetOneLonely').toggle('Get1Lonely')
+  $('#updateOneLonely').toggle('updateOneLonely')
 }
 
 const onGet1Lonely = event => {
@@ -107,18 +104,28 @@ const onLoveOneLonely = event => {
     .catch(ui.loveOneLonelyFailure)
 }
 
+const onUpdateOneLonely = event => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  console.log(data)
+  api.updateOneLonely(data)
+    .then(ui.updateOneLonelySuccess)
+    .catch(ui.updateOneLonelyFailure)
+}
+
 module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
   onSignOut,
-  onMissedConnection,
+  onIamMissingSomeone,
+  onFindSomeone,
   onMissedConnectionApi,
-  onMissedConnectionSubmit,
   onMissedConnectionMe,
   onMissedConnectionMissed,
   onGetOneLonely,
   onGet1Lonely,
   onLoveLonely,
-  onLoveOneLonely
+  onLoveOneLonely,
+  onUpdateOneLonely
 }

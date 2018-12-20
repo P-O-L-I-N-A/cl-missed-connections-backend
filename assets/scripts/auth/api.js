@@ -40,6 +40,18 @@ const signOut = () => {
   })
 }
 
+const findSomeone = data =>
+  $.ajax({
+    url: config.apiUrl + '/connections',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'connection': data
+    }
+  })
+
 const missedConnectionApi = () => {
   return $.ajax({
     url: config.apiUrl + '/connections',
@@ -47,32 +59,19 @@ const missedConnectionApi = () => {
   })
 }
 
-const missedConnectionSubmit = (data1) =>
-  $.ajax({
-    url: config.apiUrl + '/connections',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: {
-      'connection': data1
-    }
-  })
-
-const missedConnectionMe = (data2) =>
-  $.ajax({
-    url: config.apiUrl + '/my_attrs',
-    method: 'POST',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: {
-      'connection': data2
-    }
-  })
+// const missedConnectionMe = (data2) =>
+//   $.ajax({
+//     url: config.apiUrl + '/my_attrs',
+//     method: 'POST',
+//     headers: {
+//       Authorization: 'Token token=' + store.user.token
+//     },
+//     data: {
+//       'connection': data2
+//     }
+//   })
 
 const get1Lonely = id => {
-  console.log(id.ID)
   const lonelyId = id.ID
   return $.ajax({
     url: config.apiUrl + '/connections/' + lonelyId,
@@ -81,7 +80,6 @@ const get1Lonely = id => {
 }
 
 const loveOneLonely = id => {
-  console.log(id.ID)
   const lonelyId2 = id.ID
   return $.ajax({
     url: config.apiUrl + '/connections/' + lonelyId2,
@@ -93,14 +91,27 @@ const loveOneLonely = id => {
   })
 }
 
+const updateOneLonely = id => {
+  const lonelyId3 = id.connection.ID
+  return $.ajax({
+    url: config.apiUrl + '/connections/' + lonelyId3,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: id
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
+  findSomeone,
   missedConnectionApi,
-  missedConnectionSubmit,
-  missedConnectionMe,
+  // missedConnectionMe,
   get1Lonely,
-  loveOneLonely
+  loveOneLonely,
+  updateOneLonely
 }
