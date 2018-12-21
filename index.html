@@ -52,20 +52,20 @@
             AM I BEING MISSED?
     </button>
 
-    <button type='button' class='btn btn-primary d-none' id="lonely_ppl">
+    <button type='button' class='btn btn-primary d-none' id="lonelies">
             LONELIES
     </button>
 
-    <button type='button' class='btn btn-primary d-none' id="1lonely_ppl">
+    <button type='button' class='btn btn-primary d-none' id="get_a_lonely">
             GET A LONELY
     </button>
 
-    <button type='button' class='btn btn-primary d-none' id="love_lonely">
+    <button type='button' class='btn btn-primary d-none' id="love_a_lonely">
             LOVE A LONELY
     </button>
 </div>
 
-    <form id="find_someone" style="display:none;">
+    <form id="find_someone_form" style="display:none;">
         <legend></legend>
         <input type="text" name="location" placeholder="Location" id="location">
         <input type="text" name="gender" placeholder="Gender" id="gender">
@@ -86,46 +86,33 @@
         <input type="submit" value="AM I BEING MISSED?">
     </form>
 
-    <form id="GetOneLonely" style="display:none;">
-      <fieldset>
+    <form id="get_1_lonely_form" style="display:none;">
       <legend></legend>
-      <input type="text" name="ID" placeholder="ID" id="numberlonely">
-      <input type="submit" value="GET 1 LONELY" id="Get1Lonely">
-      </fieldset>
+      <input type="text" name="ID" placeholder="ID" id="id">
+      <input type="submit" value="GET 1 LONELY">
     </form>
 
-    <form id="updateOneLonely" style="display:none;">
-      <fieldset>
+    <form id="update_1_lonely_form" style="display:none;">
       <legend></legend>
-      <input type="text" name="connection[ID]" placeholder="ID" id='ID3'>
+      <input type="text" name="connection[ID]" placeholder="ID" id='id3'>
       <input type="text" name="connection[location]" placeholder="Location" id='location3'>
       <input type="text" name="connection[gender]" placeholder="Gender" id='gender3'>
       <input type="text" name="connection[hair]" placeholder="Hair" id='hair3'>
       <input type="text" name="connection[clothes]" placeholder="Clothes" id='clothes3'>
       <input type="text" name="connection[car]" placeholder="Car" id='car3'>
-      <input type="submit" value="UPDATE 1 LONELY" id="updateOneLonely3">
-      </fieldset>
+      <input type="text" name="connection[text]" placeholder="Text" id='text3'>
+      <input type="submit" value="UPDATE 1 LONELY">
     </form>
 
-    <form id="loveOneLonely" style="display:none;">
-      <fieldset>
+    <form id="love_one_lonely_form" style="display:none;">
       <legend></legend>
-      <input type="text" name="ID" placeholder="ID" id="lovelonely2">
-      <input type="submit" value="LOVE 1 LONELY" id="lovelonely3">
-      </fieldset>
+      <input type="text" name="ID" placeholder="ID" id="id4">
+      <input type="submit" value="LOVE 1 LONELY">
     </form>
 
-    <div class="container" id='lonely_content' style="display:none;">
-      <div id="one_lonely" style="color:red"></div>
-    </div>
+    <div class="container" id='lonely_content' style="display:none;"></div>
 
-    <div class="container" id='content' style="display:none;">
-      <div id="lonlies" style="color:red"></div>
-    </div>
-
-    <div class="container" id='update_content' style="display:none;">
-      <div id="lonlies" style="color:red"></div>
-    </div>
+    <div class="container" id='content' style="display:none;"></div>
 
     <!-- <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#exampleModal'>
     Press this button!

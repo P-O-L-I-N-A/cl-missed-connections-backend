@@ -52,7 +52,7 @@ const findSomeone = data =>
     }
   })
 
-const missedConnectionApi = () => {
+const lonelies = () => {
   return $.ajax({
     url: config.apiUrl + '/connections',
     method: 'GET'
@@ -79,19 +79,7 @@ const get1Lonely = id => {
   })
 }
 
-const loveOneLonely = id => {
-  const lonelyId2 = id.ID
-  return $.ajax({
-    url: config.apiUrl + '/connections/' + lonelyId2,
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    id
-  })
-}
-
-const updateOneLonely = id => {
+const update1Lonely = id => {
   const lonelyId3 = id.connection.ID
   return $.ajax({
     url: config.apiUrl + '/connections/' + lonelyId3,
@@ -103,15 +91,27 @@ const updateOneLonely = id => {
   })
 }
 
+const love1Lonely = id => {
+  const lonelyId2 = id.ID
+  return $.ajax({
+    url: config.apiUrl + '/connections/' + lonelyId2,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    id
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   findSomeone,
-  missedConnectionApi,
+  lonelies,
   // missedConnectionMe,
   get1Lonely,
-  loveOneLonely,
-  updateOneLonely
+  update1Lonely,
+  love1Lonely
 }

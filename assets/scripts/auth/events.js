@@ -39,7 +39,7 @@ const onSignOut = event => {
 
 const onIamMissingSomeone = event => {
   event.preventDefault()
-  $('#find_someone').toggle()
+  $('#find_someone_form').toggle()
 }
 
 const onFindSomeone = event => {
@@ -70,52 +70,49 @@ const onAmIbeingMissedForm = event => {
   //   .catch(ui.amIbeingMissedFormFailure)
 }
 
-const onMissedConnectionApi = event => {
+const onLonelies = event => {
   event.preventDefault()
-  api.missedConnectionApi()
-    .then(ui.missedConnectionApiSuccess)
-    .catch(ui.missedConnectionApiFailure)
-  $('.container').toggle('#content')
+  api.lonelies()
+    .then(ui.loneliesSuccess)
+    .catch(ui.loneliesFailure)
+  $('.container').toggle('')
   $('.container').html('')
 }
 
-const onGetOneLonely = event => {
+const onGetAlonely = event => {
   event.preventDefault()
-  console.log('click')
-  $('#GetOneLonely').toggle('Get1Lonely')
-  $('#updateOneLonely').toggle('updateOneLonely')
+  $('#get_1_lonely_form').toggle('')
+  $('#update_1_lonely_form').toggle('')
 }
 
 const onGet1Lonely = event => {
   event.preventDefault()
   const id = getFormFields(event.target)
-  console.log(id)
   api.get1Lonely(id)
     .then(ui.get1LonelySuccess)
     .catch(ui.get1LonelyFailure)
-  $('#lonely_content').toggle('lonely_content')
+  $('#lonely_content').toggle('')
 }
 
-const onLoveLonely = event => {
-  event.preventDefault()
-  $('#loveOneLonely').toggle('loveOneLonely')
-}
-
-const onLoveOneLonely = event => {
+const onUpdate1Lonely = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.loveOneLonely(data)
-    .then(ui.loveOneLonelySuccess)
-    .catch(ui.loveOneLonelyFailure)
+  api.update1Lonely(data)
+    .then(ui.update1LonelySuccess)
+    .catch(ui.update1LonelyFailure)
 }
 
-const onUpdateOneLonely = event => {
+const onLoveAlonely = event => {
+  event.preventDefault()
+  $('#love_one_lonely_form').toggle('')
+}
+
+const onLove1Lonely = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log(data)
-  api.updateOneLonely(data)
-    .then(ui.updateOneLonelySuccess)
-    .catch(ui.updateOneLonelyFailure)
+  api.love1Lonely(data)
+    .then(ui.love1LonelySuccess)
+    .catch(ui.love1LonelyFailure)
 }
 
 module.exports = {
@@ -127,10 +124,10 @@ module.exports = {
   onFindSomeone,
   onAmIbeingMissed,
   onAmIbeingMissedForm,
-  onMissedConnectionApi,
-  onGetOneLonely,
+  onLonelies,
+  onGetAlonely,
   onGet1Lonely,
-  onLoveLonely,
-  onLoveOneLonely,
-  onUpdateOneLonely
+  onUpdate1Lonely,
+  onLoveAlonely,
+  onLove1Lonely
 }

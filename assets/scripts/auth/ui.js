@@ -9,16 +9,23 @@ const signUpSuccess = data => {
   $('#email').val('')
   $('#password').val('')
   $('#confirm_password').val('')
-  // console.log('signUpSuccess ran. Data is :', data)
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
-const signUpFailure = () => {
+const signUpFailure = data => {
   $('#message').text('Error on sign up')
   $('#message').removeClass()
   $('#message').addClass('failure')
   $('#email').val('')
   $('#password').val('')
   $('#confirm_password').val('')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 const signInSuccess = data => {
@@ -31,13 +38,22 @@ const signInSuccess = data => {
   $('#sign_out').removeClass('d-none')
   $('#change_password').removeClass('d-none')
   $('.button_container button').removeClass('d-none')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
-const signInFailure = () => {
+const signInFailure = data => {
   $('#message').text('Error on sign in')
   $('#message').removeClass()
   $('#message').addClass('failure')
-  // console.error('signInFailure ran. Error is :', error)
+  $('#email2').val('')
+  $('#password2').val('')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 const changePasswordSuccess = data => {
@@ -46,13 +62,22 @@ const changePasswordSuccess = data => {
   $('#message').addClass('success')
   $('#oldPassword').val('')
   $('#newPassword').val('')
-  console.log('changePasswordSuccess ran. Data is :', data)
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
-const changePasswordFailure = () => {
+const changePasswordFailure = data => {
   $('#message').text('Error on password change')
   $('#message').removeClass()
   $('#message').addClass('failure')
+  $('#oldPassword').val('')
+  $('#newPassword').val('')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 const signOutSuccess = data => {
@@ -60,7 +85,7 @@ const signOutSuccess = data => {
   store.user = null
   $('#message').removeClass()
   $('#message').addClass('success')
-  console.log('signOutSuccess ran. Data is :', data)
+  $('.button_container button').addClass('d-none')
 }
 
 const signOutFailure = () => {
@@ -87,6 +112,10 @@ const findSomeoneFailure = data => {
   $('#clothes').val('')
   $('#car').val('')
   $('#text').val('')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 // const amIbeingMissedFormSuccess = data => {
@@ -97,9 +126,7 @@ const findSomeoneFailure = data => {
 //   $('#message').text('Coming SooOo0n')
 // }
 
-const missedConnectionApiSuccess = data => {
-  console.log('MissedConnectionSuccess')
-  console.log(data)
+const loneliesSuccess = data => {
   $('#content').html('')
   data.connections.forEach(connection => {
     const connectionHTML = (`
@@ -116,12 +143,11 @@ const missedConnectionApiSuccess = data => {
   })
 }
 
-const missedConnectionApiFailure = () => {
-  console.log('MissedConnectionFailure')
+const loneliesFailure = () => {
+  $('#message').text('OOo0ops')
 }
 
 const get1LonelySuccess = data => {
-  console.log(data)
   $('#lonely_content').html('')
   const connections = data.connection
   const oneLonelyHTML = (`
@@ -134,29 +160,38 @@ const get1LonelySuccess = data => {
     <p>TEXT: ${connections.text}</p>
     <br>
   `)
-  console.log(oneLonelyHTML)
   $('#lonely_content').append(oneLonelyHTML)
+  $('#id').val('')
 }
 
 const get1LonelyFailure = data => {
-  console.log('error')
+  $('#message').text('OOo0ops')
+  $('#id').val('')
 }
 
-const loveOneLonelySuccess = data => {
+const update1LonelySuccess = data => {
+  $('#message').text('Your coNneCtIoN Has BeEn UpDatEd')
+  $('#lonely_content').append('')
+  $('#id3').val('')
+  $('#location3').val('')
+  $('#gender3').val('')
+  $('#hair3').val('')
+  $('#clothes3').val('')
+  $('#car3').val('')
+  $('#text3').val('')
+}
+
+const update1LonelyFailure = data => {
+  $('#message').text('OOo0ops')
+}
+
+const love1LonelySuccess = data => {
   $('#message').text('YOU LOVED A LONELY')
+  $('#id4').val('')
 }
 
-const loveOneLonelyFailure = data => {
+const love1LonelyFailure = data => {
   $('#message').text('OOPS')
-}
-
-const updateOneLonelySuccess = data => {
-  console.log('update success')
-  $('#update_content').append(updateOneLonelySuccess)
-}
-
-const updateOneLonelyFailure = data => {
-  console.log('update failed oooooops')
 }
 
 module.exports = {
@@ -172,11 +207,12 @@ module.exports = {
   findSomeoneFailure,
   // amIbeingMissedFormSuccess,
   // amIbeingMissedFormFailure,
-  missedConnectionApiSuccess,
-  missedConnectionApiFailure,
+  loneliesSuccess,
+  loneliesFailure,
   get1LonelySuccess,
   get1LonelyFailure,
-  loveOneLonelySuccess,
-  loveOneLonelyFailure,
-  updateOneLonelyFailure
+  update1LonelySuccess,
+  update1LonelyFailure,
+  love1LonelySuccess,
+  love1LonelyFailure
 }
