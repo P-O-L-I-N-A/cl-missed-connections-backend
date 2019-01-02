@@ -33,10 +33,13 @@ const signInSuccess = data => {
   $('#message').text('Signed in successfully')
   $('#message').removeClass()
   $('#message').addClass('success')
+  $('#email2').val('')
+  $('#password2').val('')
   $('#sign_up').hide()
   $('#sign_in').hide()
   $('#sign_out').removeClass('d-none')
   $('#change_password').removeClass('d-none')
+  $('.dissapear').removeClass('d-none')
   $('.button_container button').removeClass('d-none')
   setTimeout(function () {
     $('#message').hide()
@@ -86,6 +89,9 @@ const signOutSuccess = data => {
   $('#message').removeClass()
   $('#message').addClass('success')
   $('.button_container button').addClass('d-none')
+  $('.dissapear').addClass('d-none')
+  $('#sign_in').show()
+  $('#sign_up').show()
 }
 
 const signOutFailure = () => {
@@ -95,6 +101,7 @@ const signOutFailure = () => {
 }
 
 const findSomeoneSuccess = data => {
+  $('#message').show()
   $('#message').text('YOUR LONELY WILL CONTACT U SOo0on')
   $('#location').val('')
   $('#gender').val('')
