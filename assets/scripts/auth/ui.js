@@ -5,6 +5,7 @@ const store = require('../store.js')
 const signUpSuccess = data => {
   $('#message').text('Signed up successfully')
   $('#message').removeClass()
+  $('#message').show()
   $('#message').addClass('success')
   $('#email').val('')
   $('#password').val('')
@@ -18,6 +19,7 @@ const signUpSuccess = data => {
 const signUpFailure = data => {
   $('#message').text('Error on sign up')
   $('#message').removeClass()
+  $('#message').show()
   $('#message').addClass('failure')
   $('#email').val('')
   $('#password').val('')
@@ -32,6 +34,7 @@ const signInSuccess = data => {
   store.user = data.user
   $('#message').text('Signed in successfully')
   $('#message').removeClass()
+  $('#message').show()
   $('#message').addClass('success')
   $('#email2').val('')
   $('#password2').val('')
@@ -50,6 +53,7 @@ const signInSuccess = data => {
 const signInFailure = data => {
   $('#message').text('Error on sign in')
   $('#message').removeClass()
+  $('#message').show()
   $('#message').addClass('failure')
   $('#email2').val('')
   $('#password2').val('')
@@ -62,9 +66,10 @@ const signInFailure = data => {
 const changePasswordSuccess = data => {
   $('#message').text('Password changed successfully')
   $('#message').removeClass()
+  $('#message').show()
   $('#message').addClass('success')
-  $('#oldPassword').val('')
-  $('#newPassword').val('')
+  $('#old_password').val('')
+  $('#new_password').val('')
   setTimeout(function () {
     $('#message').hide()
     $('#message').text('')
@@ -74,9 +79,10 @@ const changePasswordSuccess = data => {
 const changePasswordFailure = data => {
   $('#message').text('Error on password change')
   $('#message').removeClass()
+  $('#message').show()
   $('#message').addClass('failure')
-  $('#oldPassword').val('')
-  $('#newPassword').val('')
+  $('#old_password').val('')
+  $('#new_password').val('')
   setTimeout(function () {
     $('#message').hide()
     $('#message').text('')
@@ -87,9 +93,14 @@ const signOutSuccess = data => {
   $('#message').text('Signed out successfully')
   store.user = null
   $('#message').removeClass()
+  $('#message').show()
   $('#message').addClass('success')
   $('.button_container button').addClass('d-none')
   $('.dissapear').addClass('d-none')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
   $('#sign_in').show()
   $('#sign_up').show()
 }
@@ -97,7 +108,12 @@ const signOutSuccess = data => {
 const signOutFailure = () => {
   $('#message').text('Error on sign out')
   $('#message').removeClass()
+  $('#message').show()
   $('#message').addClass('failure')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 const findSomeoneSuccess = data => {
@@ -109,10 +125,15 @@ const findSomeoneSuccess = data => {
   $('#clothes').val('')
   $('#car').val('')
   $('#text').val('')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 const findSomeoneFailure = data => {
   $('#message').text('OOo0ops')
+  $('#message').show()
   $('#location').val('')
   $('#gender').val('')
   $('#hair').val('')
@@ -173,11 +194,17 @@ const get1LonelySuccess = data => {
 
 const get1LonelyFailure = data => {
   $('#message').text('OOo0ops')
+  $('#message').show('')
   $('#id').val('')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 const update1LonelySuccess = data => {
   $('#message').text('Your coNneCtIoN Has BeEn UpDatEd')
+  $('#message').show('')
   $('#lonely_content').append('')
   $('#id3').val('')
   $('#location3').val('')
@@ -186,19 +213,39 @@ const update1LonelySuccess = data => {
   $('#clothes3').val('')
   $('#car3').val('')
   $('#text3').val('')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 const update1LonelyFailure = data => {
   $('#message').text('OOo0ops')
+  $('#message').show('')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 const love1LonelySuccess = data => {
   $('#message').text('YOU LOVED A LONELY')
+  $('#message').show('')
   $('#id4').val('')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 const love1LonelyFailure = data => {
-  $('#message').text('OOPS')
+  $('#message').text('OOo0ops')
+  $('#message').show('')
+  $('#id4').val('')
+  setTimeout(function () {
+    $('#message').hide()
+    $('#message').text('')
+  }, 5000)
 }
 
 module.exports = {
